@@ -1,17 +1,23 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:formz/formz.dart';
+import 'package:kasassy/app/bloc/app_bloc.dart';
 import 'package:kasassy/data/repositories/authentication_repository.dart';
 
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit(this._authenticationRepository)
-      : super(
+  LoginCubit({
+    required AuthenticationRepository authenticationRepository,
+    required AppBloc appBloc,
+  })  : _authenticationRepository = authenticationRepository,
+        _appBloc = appBloc,
+        super(
           const LoginState(),
         );
 
   final AuthenticationRepository _authenticationRepository;
+  final AppBloc _appBloc;
 
   Future<void> logInWithGoogle() async {
     emit(
@@ -22,6 +28,7 @@ class LoginCubit extends Cubit<LoginState> {
       emit(
         state.copyWith(status: FormzStatus.submissionSuccess),
       );
+      _appBloc.userSubscription?.resume();
     } on Exception {
       emit(
         state.copyWith(status: FormzStatus.submissionFailure),

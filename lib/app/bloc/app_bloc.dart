@@ -20,14 +20,14 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     on<AppUserChanged>(_onUserChanged);
     on<AppLogoutRequested>(_onLogoutRequested);
     on<CheckProfileComplete>(_checkProfileComplete);
-    _userSubscription = _authenticationRepository.getCurrentUserStream().listen(
+    userSubscription = _authenticationRepository.getCurrentUserStream().listen(
       (user) {
         add(AppUserChanged(user));
       },
     );
   }
 
-  late final StreamSubscription<User?> _userSubscription;
+  StreamSubscription<User?>? userSubscription;
   final DatabaseRepository _userDataRepository;
   final AuthenticationRepository _authenticationRepository;
 
@@ -35,7 +35,9 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     CheckProfileComplete event,
     Emitter<AppState> emit,
   ) async {
-    emit(const AppState.splashscreen());
+    emit(
+      const AppState.splashscreen(),
+    );
     final isProfileComplete =
         await _userDataRepository.isProfileComplete(event.user);
     if (isProfileComplete != null) {
@@ -54,6 +56,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
       emit(
         const AppState.unauthenticated(),
       );
+      userSubscription?.pause();
     }
   }
 
@@ -63,7 +66,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
 
   @override
   Future<void> close() {
-    _userSubscription.cancel();
+    userSubscription?.cancel();
     return super.close();
   }
 }
