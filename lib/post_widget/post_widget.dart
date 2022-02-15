@@ -94,7 +94,8 @@ class _PostWidgetState extends State<PostWidget> {
                                         ),
                                       ),
                                       SimpleDialogOption(
-                                        onPressed: () => Navigator.pop(context),
+                                        onPressed: () =>
+                                            Navigator.pop(contextNew),
                                         child: const Text('Cancel'),
                                       ),
                                     ],

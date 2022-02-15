@@ -58,7 +58,7 @@ class PostHeader extends StatelessWidget {
                                 ),
                               ),
                               SimpleDialogOption(
-                                onPressed: () => Navigator.pop(context),
+                                onPressed: () => Navigator.pop(contextNew),
                                 child: const Text('Cancel'),
                               ),
                             ],
