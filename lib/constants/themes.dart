@@ -13,8 +13,12 @@ class Themes {
       unselectedItemColor: Palette.darkColor,
       showUnselectedLabels: false,
     ),
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
+      circularTrackColor: Palette.secondaryColor,
+      linearTrackColor: Palette.secondaryColor,
+    ),
     colorScheme: ColorScheme.fromSwatch(
-      accentColor: Palette.secondaryColor,
+      primarySwatch: Palette.secondaryColor,
     ),
     appBarTheme: AppBarTheme(
       elevation: 0,

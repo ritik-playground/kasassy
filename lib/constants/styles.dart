@@ -15,7 +15,7 @@ class Styles {
 
 class TextStyles {
   static TextStyle appBarHeading = const TextStyle(
-    color: Palette.darkColor,
+    color: Palette.whiteColor,
     fontSize: 18,
     fontWeight: FontWeight.w800,
   );

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Palette {
   static const primaryColor = Color(0xfffcfcff);
-  static const secondaryColor = Colors.blue;
+  static const secondaryColor = Colors.purple;
 
   static const darkColor = Color(0xff313131);
   static const redColor = Colors.red;

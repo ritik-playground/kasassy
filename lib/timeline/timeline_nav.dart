@@ -16,7 +16,7 @@ class Timeline extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Social App'),
+        title: const Text('Kasassy'),
         centerTitle: true,
         actions: [
           IconButton(
