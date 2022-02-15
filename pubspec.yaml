@@ -1,0 +1,52 @@
+name: kasassy
+description: A Very Good Project created by Very Good CLI.
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=2.14.0 <3.0.0"
+
+dependencies:
+  animator: ^3.1.0
+  bloc: ^8.0.2
+  cached_network_image: ^3.2.0
+  cloud_firestore: ^3.1.7
+  cupertino_icons: ^1.0.0
+  equatable: ^2.0.3
+  firebase_auth: ^3.3.6
+  firebase_core: ^1.12.0
+  firebase_storage: ^10.2.6
+  flow_builder: ^0.0.6
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.0.1
+  flutter_localizations:
+    sdk: flutter
+  flutter_svg: ^1.0.3
+  font_awesome_flutter: ^9.2.0
+  formz: ^0.4.1
+  geocoding: ^2.0.2
+  geolocator: ^8.1.1
+  google_sign_in: ^5.2.3
+  image: ^3.1.1
+  image_picker: ^0.8.4+6
+  intl: ^0.17.0
+  numberpicker: ^2.1.1
+  path_provider: ^2.0.8
+  timeago: ^3.2.1
+  uuid: ^3.0.5
+
+dev_dependencies:
+  bloc_test: ^9.0.2
+  flutter_test:
+    sdk: flutter
+  meta: ^1.2.3
+  mocktail: ^0.2.0
+  very_good_analysis: ^2.4.0
+
+flutter:
+  uses-material-design: true
+  generate: true
+  assets:
+    - assets/images/
+    - assets/svg/
