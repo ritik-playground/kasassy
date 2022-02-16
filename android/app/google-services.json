@@ -7,18 +7,18 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:715622168500:android:860f06677f7e0a051a24e1",
+        "mobilesdk_app_id": "1:715622168500:android:c458d08837227f8c1a24e1",
         "android_client_info": {
-          "package_name": "com.example.verygoodcore.kasassy"
+          "package_name": "com.ritikx.kasassy"
         }
       },
       "oauth_client": [
         {
-          "client_id": "715622168500-ojufpcq5p8sogpqee7c1a9cdtd6a7nn6.apps.googleusercontent.com",
+          "client_id": "715622168500-ulvos1hbqf1vpgg5o2mgad2657rt7tfc.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.verygoodcore.kasassy",
-            "certificate_hash": "a6d0509f0785567c4c8fe689626cec37483d66d8"
+            "package_name": "com.ritikx.kasassy",
+            "certificate_hash": "050fa9d89091dbf441d7e871f0533cd95b81e749"
           }
         },
         {
