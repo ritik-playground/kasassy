@@ -16,7 +16,13 @@ class Timeline extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Kasassy'),
+        title: const Text(
+          'Kasassy',
+          style: TextStyle(
+            fontSize: 40,
+            fontFamily: 'Italianno',
+          ),
+        ),
         centerTitle: true,
         actions: [
           IconButton(
