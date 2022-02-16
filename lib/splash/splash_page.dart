@@ -13,8 +13,13 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: FlutterLogo(
-          size: 150,
+        child: Text(
+          'Kasassy',
+          style: TextStyle(
+            fontSize: 100,
+            fontFamily: 'Italianno',
+            color: Colors.brown,
+          ),
         ),
       ),
     );

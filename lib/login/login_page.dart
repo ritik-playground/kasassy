@@ -42,8 +42,13 @@ class LoginPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: const [
-              FlutterLogo(
-                size: 100,
+              Text(
+                'Kasassy',
+                style: TextStyle(
+                  fontSize: 100,
+                  fontFamily: 'Italianno',
+                  color: Colors.brown,
+                ),
               ),
               GoogleLoginButton(),
             ],

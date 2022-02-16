@@ -16,6 +16,7 @@ class Themes {
     progressIndicatorTheme: const ProgressIndicatorThemeData(
       circularTrackColor: Palette.secondaryColor,
       linearTrackColor: Palette.secondaryColor,
+      refreshBackgroundColor: Palette.secondaryColor,
     ),
     colorScheme: ColorScheme.fromSwatch(
       primarySwatch: Palette.secondaryColor,
