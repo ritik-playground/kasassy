@@ -50,3 +50,7 @@ flutter:
   assets:
     - assets/images/
     - assets/svg/
+  fonts:
+    - family: Italianno
+      fonts:
+        - asset: assets/fonts/Italianno-Regular.ttf
