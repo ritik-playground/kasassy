@@ -12,7 +12,7 @@ class DetailsCubit extends Cubit<DetailsState> {
     this._userDataRepository,
     this._storageRepository,
   ) : super(
-          DetailsInitial(),
+          const DetailsState(),
         );
 
   final StorageRepository _storageRepository;
@@ -25,27 +25,41 @@ class DetailsCubit extends Cubit<DetailsState> {
     required User currentUser,
   }) async {
     emit(
-      DetailsInProgress(),
+      const DetailsState(status: DetailsStatus.loading),
     );
-    try {
-      final profilePictureUrl = await _storageRepository.uploadFile(
-        profileImage: profileImage,
-        usernamePath: 'profile_pictures/$username',
+    final isUsernameExist =
+        await _userDataRepository.isUsernameExist(username: username);
+    if (isUsernameExist) {
+      emit(
+        const DetailsState(
+          status: DetailsStatus.failure,
+          error: 'Username already exists. Please choose another one.',
+        ),
       );
-      await _userDataRepository.saveUserDetails(
-        currentUser: currentUser,
-        profileImageURL: profilePictureUrl,
-        age: age,
-        username: username,
-      );
+    } else {
+      try {
+        final profilePictureUrl = await _storageRepository.uploadFile(
+          profileImage: profileImage,
+          usernamePath: 'profile_pictures/$username',
+        );
+        await _userDataRepository.saveUserDetails(
+          currentUser: currentUser,
+          profileImageURL: profilePictureUrl,
+          age: age,
+          username: username.toLowerCase(),
+        );
 
-      emit(
-        DetailsSuccess(),
-      );
-    } catch (_, __) {
-      emit(
-        DetailsFailure(),
-      );
+        emit(
+          const DetailsState(status: DetailsStatus.success),
+        );
+      } catch (e) {
+        emit(
+          const DetailsState(
+            error: 'Something went wrong',
+            status: DetailsStatus.failure,
+          ),
+        );
+      }
     }
   }
 }

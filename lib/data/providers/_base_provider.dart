@@ -34,6 +34,10 @@ abstract class BaseDatabaseProvider extends BaseProvider {
     required User currentUser,
   });
 
+  Future<bool> isUsernameExist({
+    required String username,
+  });
+
   Future<void> saveUploadPost({
     required String mediaURL,
     required String currentLocation,

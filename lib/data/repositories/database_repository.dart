@@ -42,6 +42,14 @@ class DatabaseRepository {
     );
   }
 
+  Future<bool> isUsernameExist({
+    required String username,
+  }) {
+    return _databaseProvider.isUsernameExist(
+      username: username,
+    );
+  }
+
   Future<void> uploadPostData({
     required String mediaUrl,
     required String location,

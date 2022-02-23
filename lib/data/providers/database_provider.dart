@@ -78,6 +78,20 @@ class DatabaseProvider extends BaseDatabaseProvider {
   }
 
   @override
+  Future<bool> isUsernameExist({required String username}) async {
+    try {
+      final documentSnapshot = await _firestoreData
+          .collection('users')
+          .where('username', isEqualTo: username)
+          .get();
+      final isUsernameExist = documentSnapshot.docs.isNotEmpty;
+      return isUsernameExist;
+    } on Exception {
+      throw IsUsernameExist();
+    }
+  }
+
+  @override
   Future<void> saveUploadPost({
     required String mediaURL,
     required String currentLocation,
@@ -604,6 +618,8 @@ class HandleDeletePost implements Exception {}
 class HandleLikePost implements Exception {}
 
 class HandleDislikePost implements Exception {}
+
+class IsUsernameExist implements Exception {}
 
 class GetTimeline implements Exception {}
 

@@ -1,16 +1,16 @@
 part of 'details_cubit.dart';
 
-abstract class DetailsState extends Equatable {
-  const DetailsState();
+enum DetailsStatus { initial, success, failure, loading }
+
+class DetailsState extends Equatable {
+  const DetailsState({
+    this.status = DetailsStatus.initial,
+    this.error,
+  });
+
+  final DetailsStatus status;
+  final String? error;
 
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [error, status];
 }
-
-class DetailsInitial extends DetailsState {}
-
-class DetailsInProgress extends DetailsState {}
-
-class DetailsSuccess extends DetailsState {}
-
-class DetailsFailure extends DetailsState {}

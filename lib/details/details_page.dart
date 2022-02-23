@@ -47,14 +47,14 @@ class _DetailsPageState extends State<DetailsPage> with WidgetsBindingObserver {
         resizeToAvoidBottomInset: true,
         body: BlocListener<DetailsCubit, DetailsState>(
           listener: (context, state) {
-            if (state is DetailsFailure) {
+            if (state.status == DetailsStatus.failure) {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Login Failure'),
+                SnackBar(
+                  content: Text(state.error!),
                 ),
               );
             }
-            if (state is DetailsSuccess) {
+            if (state.status == DetailsStatus.success) {
               context.read<AppBloc>().add(
                     CheckProfileComplete(
                       currentUser,
@@ -205,12 +205,12 @@ class _DetailsPageState extends State<DetailsPage> with WidgetsBindingObserver {
       builder: (context, state) {
         final currentUser =
             context.select((AppBloc bloc) => bloc.state.currentUser)!;
-        if (state is DetailsInProgress) {
+        if (state.status == DetailsStatus.loading) {
           return const CircularProgressIndicator(
             strokeWidth: 2,
           );
         }
-        if (state is DetailsSuccess) {
+        if (state.status == DetailsStatus.success) {
           return const Text('Saved');
         } else {
           return FloatingActionButton(
