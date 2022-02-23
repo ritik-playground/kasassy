@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kasassy/activity/cubit/activity_feed_cubit.dart';
 import 'package:kasassy/app/bloc/app_bloc.dart';
-import 'package:kasassy/chat/chat.dart';
 import 'package:kasassy/data/repositories/authentication_repository.dart';
 import 'package:kasassy/data/repositories/database_repository.dart';
 import 'package:kasassy/data/repositories/device_repository.dart';
@@ -78,7 +77,6 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[
           const Timeline(),
           const Upload(),
-          Chat.route(currentUserData: currentUserData),
           Profile(profileId: currentUserData.uid),
         ],
       ),
@@ -98,10 +96,6 @@ class _HomePageState extends State<HomePage> {
               size: 35,
             ),
             label: 'Upload',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
-            label: 'Chat',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),

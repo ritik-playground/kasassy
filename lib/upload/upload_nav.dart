@@ -219,7 +219,9 @@ class _UploadState extends State<Upload> {
                 child: Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: FileImage(File(currentState.pickedImage!.path)),
+                      image: FileImage(
+                        File(currentState.pickedImage!.path),
+                      ),
                       fit: BoxFit.contain,
                     ),
                   ),

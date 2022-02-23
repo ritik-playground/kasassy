@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kasassy/activity/activity_nav.dart';
 import 'package:kasassy/activity/cubit/activity_feed_cubit.dart';
+import 'package:kasassy/app/bloc/app_bloc.dart';
+import 'package:kasassy/chat/chat.dart';
 import 'package:kasassy/constants/widgets.dart';
 import 'package:kasassy/search/cubit/search_cubit.dart';
 import 'package:kasassy/search/search_nav.dart';
@@ -14,6 +16,8 @@ class Timeline extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentUserData =
+        context.select((AppBloc bloc) => bloc.state.currentUserData)!;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -23,7 +27,6 @@ class Timeline extends StatelessWidget {
             fontFamily: 'Italianno',
           ),
         ),
-        centerTitle: true,
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
@@ -45,6 +48,13 @@ class Timeline extends StatelessWidget {
               );
             },
           ),
+          IconButton(
+            onPressed: () {
+              Navigator.of(context)
+                  .push<void>(Chat.route(currentUserData: currentUserData));
+            },
+            icon: const Icon(Icons.chat),
+          )
         ],
       ),
       body: BlocBuilder<TimelineCubit, TimelineState>(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kasassy/constants/palette.dart';
 import 'package:kasassy/constants/widgets.dart';
 import 'package:kasassy/search/cubit/search_cubit.dart';
 import 'package:kasassy/search/widgets/no_content.dart';
@@ -27,11 +28,14 @@ class Search extends StatelessWidget {
       appBar: AppBar(
         title: TextField(
           autofocus: true,
+          style: const TextStyle(color: Palette.whiteColor),
           controller: searchController,
+          cursorColor: Palette.whiteColor,
           keyboardType: TextInputType.text,
           textInputAction: TextInputAction.search,
           textCapitalization: TextCapitalization.words,
           decoration: const InputDecoration.collapsed(
+            hintStyle: TextStyle(color: Palette.whiteColor),
             hintText: 'Search for a user...',
           ),
           onSubmitted: (query) {

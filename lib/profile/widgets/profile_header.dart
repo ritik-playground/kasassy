@@ -29,65 +29,70 @@ class ProfileHeader extends StatelessWidget {
                 state.profileData.bio,
               ),
               const SizedBox(height: 20),
-              if (state.isProfileOwner)
-                OutlineButton(
-                  onPressed: () {
-                    Navigator.of(context).push<void>(
-                      EditProfile.route(
-                        profileData: state.profileData,
-                      ),
-                    );
-                  },
-                  child: const Text(
-                    'Edit Profile',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                )
-              else
-                OutlineButton(
-                  onPressed: () {
-                    context.read<ProfileCubit>().openMessage(
-                          profileData: state.profileData,
-                          currentUserData: state.currentUserData,
-                        );
-                  },
-                  child: const Text('Message'),
-                ),
-              const SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 50),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Column(
-                      mainAxisSize: MainAxisSize.min,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 50),
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text(
-                          state.posts.length.toString(),
-                          style: const TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.only(top: 4),
-                          child: const Text(
-                            'posts',
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400,
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              state.posts.length.toString(),
+                              style: const TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                        ),
+                            Container(
+                              margin: const EdgeInsets.only(top: 4),
+                              child: const Text(
+                                'posts',
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
                       ],
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  if (state.isProfileOwner)
+                    OutlineButton(
+                      onPressed: () {
+                        Navigator.of(context).push<void>(
+                          EditProfile.route(
+                            profileData: state.profileData,
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        'Edit Profile',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     )
-                  ],
-                ),
-              ),
+                  else
+                    OutlineButton(
+                      onPressed: () {
+                        context.read<ProfileCubit>().openMessage(
+                              profileData: state.profileData,
+                              currentUserData: state.currentUserData,
+                            );
+                      },
+                      child: const Text('Message'),
+                    ),
+                ],
+              )
             ],
           );
         }

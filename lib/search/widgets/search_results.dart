@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:kasassy/constants/palette.dart';
 import 'package:kasassy/data/models/user.dart';
 import 'package:kasassy/profile/profile_nav.dart';
 
@@ -35,13 +36,15 @@ class _SearchResult extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.tealAccent,
+      color: Palette.secondaryColor.withOpacity(0.1),
       child: Column(
         children: <Widget>[
           GestureDetector(
             onTap: () {
               Navigator.of(context).push<void>(
-                Profile.route(profileId: searchUserResult.uid),
+                Profile.route(
+                  profileId: searchUserResult.uid,
+                ),
               );
             },
             child: ListTile(

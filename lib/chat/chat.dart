@@ -14,10 +14,10 @@ class Chat extends StatelessWidget {
   })  : _currentUserData = currentUserData,
         super(key: key);
 
-  static Builder route({
+  static Route route({
     required UserData currentUserData,
   }) {
-    return Builder(
+    return MaterialPageRoute<void>(
       builder: (_) => Chat(
         currentUserData: currentUserData,
       ),

@@ -49,7 +49,10 @@ class Profile extends StatelessWidget {
           },
           builder: (context, state) {
             if (state is ProfileLoaded) {
-              return const ProfileParts();
+              return const Padding(
+                padding: EdgeInsets.all(10),
+                child: ProfileParts(),
+              );
             } else {
               return Progress.circularProgress();
             }
