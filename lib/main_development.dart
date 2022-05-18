@@ -7,12 +7,12 @@
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:kasassy/app/app.dart';
 import 'package:kasassy/bootstrap.dart';
 import 'package:kasassy/data/repositories/authentication_repository.dart';
 import 'package:kasassy/data/repositories/database_repository.dart';
 import 'package:kasassy/data/repositories/device_repository.dart';
 import 'package:kasassy/data/repositories/storage_repository.dart';
+import 'package:kasassy/features/app/app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
